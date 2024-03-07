@@ -13,6 +13,8 @@ import '../../pages/auth/auth.css'
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import Loading from "../loading/loading";
+import { FaRegBookmark } from "react-icons/fa";
+import { FaBookmark } from "react-icons/fa";
 
 
 const Cards=()=>{
@@ -63,6 +65,27 @@ const Cards=()=>{
         setAdd(add+10)
     }
 
+    const [save,setSave]=useState(JSON.parse(localStorage.getItem('saved'))|| [])
+
+    const handleSave=(wrkout)=>{
+        const isSaved=save.some(savWrkout => savWrkout.id===wrkout.id)
+
+        if (!isSaved){
+            const updatedSaved=[...save,wrkout];
+            setSave(updatedSaved)
+            localStorage.setItem('saved',JSON.stringify(updatedSaved))
+        } else {
+            const updatedSaved=save.filter(savWrkout=> savWrkout.id !== wrkout.id)
+            setSave(updatedSaved)
+            localStorage.setItem('saved',JSON.stringify(updatedSaved))
+        }
+
+    }
+
+    const isSaved =(wrkout)=> {
+        return save.some(savWrkout=> savWrkout.id===wrkout.id)
+    }
+
     
 
     if(wrkouts===null){
@@ -91,7 +114,8 @@ const Cards=()=>{
                              <img src= {wrkout.gifUrl} alt="" />
                         </div>
                         <div className="card-detail">
-                            <h3>{wrkout.name}</h3>
+                            <h3>{wrkout.name} <button onClick={()=>handleSave(wrkout)} className="save">
+                            {isSaved(wrkout)  ? <button className="saved"><FaBookmark/></button> : <FaRegBookmark/>}</button></h3>
                             <p>{wrkout.target}</p>
                             <Link to={`/wrkoutdetail/${index}`} state={wrkout}>Wrkout Details <FaArrowRight/></Link>
 
@@ -100,6 +124,7 @@ const Cards=()=>{
                     </div>
                 )
             })}
+            <button onClick={loadMore}>More exercises</button>
         </div>
         : <div>
             <div className='auth-image'>

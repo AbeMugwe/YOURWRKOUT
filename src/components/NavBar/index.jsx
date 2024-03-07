@@ -33,10 +33,10 @@ const NavBar=()=>{
             </div>
 
             <div className={`dropdown ${toggle ? 'open ': 'closed'}`}>
-                <button onClick={handleToggle}>X</button>
+                <button className='close' onClick={handleToggle}>X</button>
                 <Link to='/'>Home</Link>
                 <Link to='/wrkouts'>Wrkouts</Link>
-                <Link>Saved Wrkouts</Link>
+                <Link to='/saved'>Saved Wrkouts</Link>
             </div>
 
 

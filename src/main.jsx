@@ -11,6 +11,7 @@ import { AuthProvider } from './components/Context/authContext.jsx'
 import SearchBar from './components/SearchBar/index.jsx'
 import WrkoutDetails from './components/HorizontalScroll/WrkoutDetails.jsx'
 import Loading from './components/loading/loading.jsx'
+import SavedWrkouts from './pages/Saved/index.jsx'
 
 
 const paths=createBrowserRouter([
@@ -41,6 +42,10 @@ const paths=createBrowserRouter([
   {
     path:'/wrkoutdetail/:id',
     element:<WrkoutDetails/>
+  },
+  {
+    path:'/saved',
+    element:<SavedWrkouts/>
   },
 ])
 
