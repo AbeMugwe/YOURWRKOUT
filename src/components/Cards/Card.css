@@ -1,0 +1,93 @@
+.main{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.card-text{
+    color: white;
+    >img{
+        height: 300px;
+        width: 300px;
+        object-fit: contain;
+        border-radius: 20px;
+    }
+   
+}
+
+
+.card-container{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 30px;
+    background-color: black;
+    border-radius: 10px;
+    
+
+}
+
+.card{
+    background-color: white;
+    height: 400px;
+    width: 350px;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border:5px solid orange;
+    border-radius:10px;
+
+
+}
+
+.card-detail{
+    >a{
+        text-decoration: none;
+        color:orange ;
+        font-weight: bold;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+    }
+}
+
+.Horizontal{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.part{
+    height: 50px;
+    width: 100px;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 30px;
+}
+.part1{
+    height: 50px;
+    width: 100px;
+    background-color: white;
+    color: orange;
+    border-radius: 10px;
+    font-size: 30px;
+}
+
+.please{
+    height: 300px;
+    width: 500px;
+    border-radius: 10px;
+    margin-left: 400px;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+
+    background:linear-gradient(135 deg rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+
+}
