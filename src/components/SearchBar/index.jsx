@@ -1,68 +1,74 @@
-import { useState,useEffect } from "react"
-import  {abeFetch,wrkoutOptions} from "../../Hooks/abeFetch"
-import useFetch from "../../Hooks/abeFetch";
-import './Search.css'
+import React, { useState, useEffect } from "react";
 import { IoIosSearch } from "react-icons/io";
 import NavBar from "../NavBar";
-import { Link } from "react-router-dom";
+import useFetch, { wrkoutOptions } from "../../Hooks/abeFetch";
+import Loading from "../loading/loading";
+import "./Search.css";
 
+const SearchBar = () => {
+    const [search, setSearch ] = useState("")
+    const [ wrkouts, setWrkouts ] = useState([])
+    let url = "https://exercisedb.p.rapidapi.com/exercises?limit=100"
 
-
-const SearchBar=()=>{
-    const [search,setSearch]=useState('squat')
-    
-
-    const url = `https://exercisedb.p.rapidapi.com/exercises/name/${search}?limit=15`;
-    
-    const handleSearch=()=>{
-        e.preventDefault()
-        setSearch(wrkouts)
+    const fetchSearch = async (urlEndpoint)=>{
+        const response = await fetch(urlEndpoint, wrkoutOptions)
+        const data = await response.json()
+        setWrkouts(data)
     }
-    
-    
-    const wrkouts = useFetch(url, wrkoutOptions)
-    console.log(wrkouts)
 
-    if(wrkouts===null){
-        return (
-            <h1>Loading...</h1>
-        )
+    useEffect(()=>{
+        fetchSearch(url)
+        console.log(wrkouts)
+
+    },[])
+
+
+
+    const handleChange = (e) => {
+        setSearch(e.target.value)
     }
-    
 
-
-
-    return(
-        <div>
-            <NavBar/>
-            <form action="" onSubmit={handleSearch} className="search-container">
-                <input className="search-bar" type="text" value={search} placeholder="Which wrkout are you looking for..." onChange={e => setSearch(e.target.value)} />
-            <button className="submit" type="submit"><IoIosSearch/></button>
-            </form>
-            {
-                wrkouts && wrkouts.map((searched,index)=>{
-                    return(
-                        <div className="card" key={index}>
-                            <div className="card-text">
-                                 <img src= {searched.gifUrl} alt="" />
-                            </div>
-                            <div>
-                                <h3>{searched.name}</h3>
-                                <h4>{searched.target}</h4>
-    
-                            </div>
-                        </div>
- 
-                    )
-                })
+  return (
+    <div>
+      <NavBar />
+      <form action="" className="search-container">
+        <input
+          className="search-bar"
+          type="text"
+          value={search}
+          placeholder="Which workout are you looking for..."
+          onChange={handleChange}
+        />
+        <button className="submit" type="submit">
+          <IoIosSearch />
+        </button>
+      </form>
+        <h3 style={{color: "white", display: "flex", justifyContent: "center", margin: "20px 0"}}>Showing { search ? search : "All" } Workouts</h3>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "8%", justifyContent: "center"}}>
+        {
+        wrkouts.filter((wrkout) =>{
+            if (!search || wrkout.bodyPart.toLowerCase().includes(search.toLowerCase()) || wrkout.name.toLowerCase().includes(search.toLowerCase())) {
+                return wrkout
             }
-
-            
+        }).map((filteredWrkout, index)=>{
+            return (
+                <div className="card" key={index}>
+            <div className="card-text">
+              <img src={filteredWrkout.gifUrl} alt="" />
+            </div>
+            <div>
+              <h3>{filteredWrkout.name}</h3>
+              <h4>{filteredWrkout.target}</h4>
+            </div>
+          </div>
+            )
+        })
+      }
         </div>
-    )
 
 
-    
-}
+    </div>
+  );
+};
 
-export default SearchBar
+export default SearchBar;

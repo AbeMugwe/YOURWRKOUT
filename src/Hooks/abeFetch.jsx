@@ -1,7 +1,7 @@
 export const wrkoutOptions={
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'a2cb41f5a7msh72ed1a7e806ae64p175ed6jsne06c55c1c492',
+            'X-RapidAPI-Key': '092487c69bmsh2a2a01d0abd4b19p18eed5jsn694a9335e8d1',
             'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
         }
 }

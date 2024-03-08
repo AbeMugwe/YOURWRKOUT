@@ -2,13 +2,13 @@ import './loading.css'
 
 const Loading=()=>{
     return(
-        <div class="loaderContainer">
-            <div class="particleContainer">
+        <div className="loaderContainer">
+            <div className="particleContainer">
               <div></div>
               <div></div>
               <div></div>
             </div>
-            <div class="particleContainer">
+            <div className="particleContainer">
               <div></div>
               <div></div>
               <div></div>

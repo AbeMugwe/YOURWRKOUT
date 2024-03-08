@@ -16,6 +16,7 @@ const Login=()=>{
     })
 
     if ( error ) {
+      alert("An error occured")
         console.log(error)
     } else {
         console.log(data)

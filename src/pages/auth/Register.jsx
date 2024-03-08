@@ -3,8 +3,6 @@ import './auth.css'
 import { useState } from "react";
 import { supabase } from '../../components/utils/supabaseConfig';
 
-
-
 const Register=()=>{
     const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,9 +19,10 @@ const Register=()=>{
       })
 
       if ( error ) {
+          alert("An error occured")
           console.log(error)
       } else {
-          console.log(data)
+          alert("Successfully registered, please check your email for verification.")
       }
     }
 
