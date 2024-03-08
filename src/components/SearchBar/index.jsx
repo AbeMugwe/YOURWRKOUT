@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { IoIosSearch } from "react-icons/io";
 import NavBar from "../NavBar";
 import useFetch, { wrkoutOptions } from "../../Hooks/abeFetch";
-import Loading from "../loading/loading";
 import "./Search.css";
 
 const SearchBar = () => {
