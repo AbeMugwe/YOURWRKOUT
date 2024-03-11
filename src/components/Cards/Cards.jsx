@@ -22,7 +22,7 @@ const Cards=()=>{
 
     const[url,setUrl]=useState('https://exercisedb.p.rapidapi.com/exercises?limit=30')
     const[value,setValue]=useState('chest')
-    const[add,setAdd]=useState(10)
+
     
     const wrkoutOptions={
         method: 'GET',
@@ -34,36 +34,35 @@ const Cards=()=>{
     const wrkouts = useFetch(url, wrkoutOptions)
     const handleAll=()=>{
         setValue('All')
-        setUrl(`https://exercisedb.p.rapidapi.com/exercises?limit=${add}`)
+        setUrl(`https://exercisedb.p.rapidapi.com/exercises?limit=100`)
     }
     const handleBack=()=>{
         setValue('back')
-        setUrl(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${value}?limit=10`)
+        setUrl(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${value}?limit=20`)
     }
     const handleChest=()=>{
         setValue('chest')
-        setUrl(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${value}?limit=10`)
+        setUrl(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${value}?limit=50`)
     }
     const handleLegs=()=>{
         setValue('lower%20legs')
-        setUrl(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${value}?limit=10`)
+        setUrl(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${value}?limit=50`)
     }
     const handleLarms=()=>{
         setValue('lower%20arms')
-        setUrl(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${value}?limit=10`)
+        setUrl(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${value}?limit=50`)
     }
     const handleUarms=()=>{
         setValue('upper%20arms')
-        setUrl(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${value}?limit=10`)
+        setUrl(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${value}?limit=50`)
     }
     const handleShoulders=()=>{
         setValue('shoulders')
-        setUrl(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${value}?limit=10`)
+        setUrl(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${value}?limit=50`)
     }
 
-    const loadMore=()=>{
-        setAdd(add+10)
-    }
+
+    
 
     const [save,setSave]=useState(JSON.parse(localStorage.getItem('saved'))|| [])
 

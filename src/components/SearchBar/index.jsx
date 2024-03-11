@@ -9,6 +9,8 @@ import { FaArrowRight } from "react-icons/fa";
 import Loading from "../loading/loading";
 import { FaRegBookmark } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
+import { FaCaretRight } from "react-icons/fa6";
+import { FaCaretLeft } from "react-icons/fa6";
 
 
 
@@ -16,7 +18,11 @@ import { FaBookmark } from "react-icons/fa";
 const SearchBar=()=>{
     const [search, setSearch ] = useState("")
     const [ wrkouts, setWrkouts ] = useState([])
-    let url = "https://exercisedb.p.rapidapi.com/exercises?limit=100"
+    let url = "https://exercisedb.p.rapidapi.com/exercises?limit=1000"
+
+    const [currentPage,setCurrentPage]=useState(1)
+    const [postsPerPage,setPostsPerPage]=useState(15)
+
 
     const fetchSearch = async (urlEndpoint)=>{
         const response = await fetch(urlEndpoint, wrkoutOptions)
@@ -45,6 +51,18 @@ const SearchBar=()=>{
             localStorage.setItem('saved',JSON.stringify(updatedSaved))
         }
 
+    }
+    const lastPostIndex=currentPage * postsPerPage
+    const firstPostIndex=lastPostIndex - postsPerPage
+
+    const NextPage=()=>{
+        const next=currentPage + 1
+        setCurrentPage(next)
+    }
+
+    const PrevPage=()=>{
+        const next=currentPage - 1
+        setCurrentPage(next)
     }
 
     const isSaved =(wrkout)=> {
@@ -87,7 +105,7 @@ const SearchBar=()=>{
             if (!search || wrkout.bodyPart.toLowerCase().includes(search.toLowerCase()) || wrkout.name.toLowerCase().includes(search.toLowerCase())) {
                 return wrkout
             }
-        }).map((filteredWrkout, index)=>{
+        }).slice(firstPostIndex,lastPostIndex).map((filteredWrkout, index)=>{
             return (
                 <div className="card" key={index}>
             <div className="card-text">
@@ -103,6 +121,9 @@ const SearchBar=()=>{
             )
         })
       }
+      <div className="next">
+          <p>Current Page: {currentPage}</p><button onClick={PrevPage}><FaCaretLeft/></button><button onClick={NextPage}><FaCaretRight/></button> 
+      </div>
         </div>
 
 
