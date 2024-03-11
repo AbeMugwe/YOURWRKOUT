@@ -27,7 +27,7 @@ const Cards=()=>{
     const wrkoutOptions={
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'a2cb41f5a7msh72ed1a7e806ae64p175ed6jsne06c55c1c492',
+            'X-RapidAPI-Key': '2081b5b09amsh636e16597ed7676p1522bfjsn5320387cca4e',
             'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
         }
     }
@@ -96,36 +96,42 @@ const Cards=()=>{
 
     return(
         <div className='main'> 
-            <div className="Horizontal" >
-                <button className="part" onClick={handleAll}><GiGymBag/></button>
-                <button className="part" onClick={handleBack} value={value}>Back</button>
-                <button className="part" onClick={handleChest} value={value} ><GiShoulderArmor/></button>
-                <button className="part" onClick={handleLegs} value={value}><GiLeg/></button>
-                <button className="part" onClick={handleLarms}><GiBiceps/></button>
-                <button className="part1" onClick={handleUarms}><GiBiceps/></button>
-                <button className="part" onClick={handleShoulders}><GiStrongMan/></button>
-            </div> 
-            <h1 style={{color:"white"}}>Showing Results for:{value}</h1>
-            {session ? <div className="card-container">
-            {wrkouts.map((wrkout,index)=>{
-                return(
-                    <div className="card" key={index}>
-                        <div className="card-text">
-                             <img src= {wrkout.gifUrl} alt="" />
-                        </div>
-                        <div className="card-detail">
-                            <h3>{wrkout.name} <button onClick={()=>handleSave(wrkout)} className="save">
-                            {isSaved(wrkout)  ? <button className="saved"><FaBookmark/></button> : <FaRegBookmark/>}</button></h3>
-                            <p>{wrkout.target}</p>
-                            <Link to={`/wrkoutdetail/${index}`} state={wrkout}>Wrkout Details <FaArrowRight/></Link>
-
-                        </div>
+            
+            {session ? 
+            <div>
+                <div className="Horizontal" >
+                    <button className="part" onClick={handleAll}><GiGymBag/></button>
+                    <button className="part" onClick={handleBack} value={value}>Back</button>
+                    <button className="part" onClick={handleChest} value={value} ><GiShoulderArmor/></button>
+                    <button className="part" onClick={handleLegs} value={value}><GiLeg/></button>
+                    <button className="part" onClick={handleLarms}><GiBiceps/></button>
+                    <button className="part1" onClick={handleUarms}><GiBiceps/></button>
+                    <button className="part" onClick={handleShoulders}><GiStrongMan/></button>
+                </div> 
+                <div className="above-cards">
+                    <h1 style={{color:"white"}}>Showing Results for:{value}</h1>
+                    <Link to='/search'><button className="to-search">Want to search?</button></Link>
+                </div>
+                <div className="card-container">
+                    {wrkouts.map((wrkout,index)=>{
+                        return(
+                            <div className="card" key={index}>
+                                <div className="card-text">
+                                     <img src= {wrkout.gifUrl} alt="" />
+                                </div>
+                                <div className="card-detail">
+                                    <h3>{wrkout.name} <button onClick={()=>handleSave(wrkout)} className="save">
+                                    {isSaved(wrkout)  ? <button className="saved"><FaBookmark/></button> : <FaRegBookmark/>}</button></h3>
+                                    <p>{wrkout.target}</p>
+                                    <Link to={`/wrkoutdetail/${index}`} state={wrkout}>Wrkout Details <FaArrowRight/></Link>
                         
-                    </div>
-                )
-            })}
-            <button onClick={loadMore}>More exercises</button>
-        </div>
+                                </div>
+
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
         : <div>
             <div className='auth-image'>
                 <img src={image} alt="" />

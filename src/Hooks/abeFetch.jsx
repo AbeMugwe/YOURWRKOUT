@@ -1,7 +1,7 @@
 export const wrkoutOptions={
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'a2cb41f5a7msh72ed1a7e806ae64p175ed6jsne06c55c1c492',
+            'X-RapidAPI-Key': '2081b5b09amsh636e16597ed7676p1522bfjsn5320387cca4e',
             'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
         }
 }
@@ -13,6 +13,7 @@ export const videoOptions={
 		'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
     } 
 }
+
 
 
 
