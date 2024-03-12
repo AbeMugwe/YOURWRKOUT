@@ -37,7 +37,7 @@ const Register=()=>{
                     </div>
                     <div>
                         <h3>Password</h3>
-                        <input className='pass' type="text" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
+                        <input className='pass' type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
                     </div>
                     <button className='login' type="submit">Sign In</button>
                 </form>

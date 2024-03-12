@@ -39,7 +39,7 @@ const Login=()=>{
                 <div><h3>Password</h3>
                 <input
                     className='pass'
-                  type="text"
+                  type="password"
                   name="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
