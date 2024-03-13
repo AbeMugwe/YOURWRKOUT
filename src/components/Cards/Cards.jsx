@@ -135,7 +135,7 @@ const Cards=()=>{
             <div className='auth-image'>
                 <img src={image} alt="" />
             </div>
-            <div className="please">Oh no!! you dont have an account?.. or have you logged out? To see YOURWRKOUT Register Now! or Log back in</div>
+            <div className="please">Oh no.. It seems that you don't have an account.. or logged out? To see YOURWRKOUT go Sign in or Log back in</div>
         </div>
             }
        

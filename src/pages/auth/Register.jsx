@@ -2,12 +2,18 @@ import image from '../../assets/wrklogo1.jpg'
 import './auth.css'
 import { useState } from "react";
 import { supabase } from '../../components/utils/supabaseConfig';
+import { FaGoogle } from "react-icons/fa";
 
 
 
 const Register=()=>{
     const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+
+  const RegisterWithGoogle= async ()=>{
+    const { data, error } = await supabase.auth.signInWithOAuth({  provider: 'google'})
+  }
 
   async function signUpNewUser(e) {
     e.preventDefault();
@@ -40,6 +46,7 @@ const Register=()=>{
                         <input className='pass' type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
                     </div>
                     <button className='login' type="submit">Sign In</button>
+                    <button className='google' onClick={RegisterWithGoogle}> Sign-in with Google <FaGoogle/></button>
                 </form>
                 <div className='auth-image'>
                     <img src={image} alt="" />

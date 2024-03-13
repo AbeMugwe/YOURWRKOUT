@@ -55,7 +55,7 @@ const NavBar=()=>{
                 WELCOME TO YOURWRKOUT</div>
             </div> :
             <div className='nav-text'>
-                <Link to='/sign-in'><button className='sign-up'>Sign up Now!</button></Link>
+                <Link to='/sign-in'><button className='sign-up'>Sign up</button></Link>
                 <Link to='/login'><button className='log-in'>Log In</button></Link>
                 YOURWRKOUT
             </div>

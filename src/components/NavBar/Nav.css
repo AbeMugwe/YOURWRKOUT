@@ -52,16 +52,18 @@ nav{
 }
 
 .log-in{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     height: 40px;
     width: 100px;
     padding: 5px;
     color: white;
     background-color:#DD4304;
-    border-color: white;
+    border: 2px solid white;
     border-radius: 80px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.8s;
+    font-size: 15px;
 }
 
 .log-in:hover{

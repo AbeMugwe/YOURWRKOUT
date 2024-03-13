@@ -43,15 +43,17 @@
 }
 
 .sign-up{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     height: 40px;
     width: 100px;
     padding: 5px;
     color: white;
     background-color: black;
-    border-color: white;
+    border:2px solid white;
     border-radius: 80px;
     cursor: pointer;
     transition: 0.8s;
+    font-size: 15px;
 }
 
 .sign-up:hover{

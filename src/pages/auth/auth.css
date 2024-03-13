@@ -50,4 +50,25 @@
     border-radius: 10px;
     background-color: black;
     color: white;
+    border: 2px solid white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.google{
+    width:  250px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    justify-content: center;
+
 }
