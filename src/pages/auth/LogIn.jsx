@@ -9,7 +9,10 @@ const Login=()=>{
   const [password, setPassword] = useState("");
 
   const loginWithGoogle= async ()=>{
-    const { data, error } = await supabase.auth.signInWithOAuth({  provider: 'google'})
+    const { data, error } = await supabase.auth.signInWithOAuth(
+      {  provider: 'google',
+        options:{redirectTo:'https://yourwrkout.vercel.app/'}
+      })
   }
 
   async function signInWithEmail(e) {
