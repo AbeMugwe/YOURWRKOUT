@@ -1,6 +1,7 @@
-# React + Vite
+# YOURWRKOUT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a workout website which helps you search for workouts to try out.
+It uses GIF's and Youtube videos to teach users how to do the workout
 
 Currently, two official plugins are available:
 
